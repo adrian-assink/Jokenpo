@@ -1,0 +1,122 @@
+import random
+
+j1 = False
+j2 = False
+
+jogadores = 0
+
+start = True
+
+scoreJ1 = 0
+scoreJ2 = 0
+scorePC = 0
+
+def escolhaPC(n):
+  n = ["Pedra", "Papel", "Tesoura"]
+  random.shuffle(n)
+  return n
+
+
+print("Bem vindo ao Jokenpo\n")
+
+while start:
+  print("1 - Jogador X Jogador")
+  print("2 - Jogador X Computador")
+  print("3 - Sair")
+  menuInicial = input("Selecione o modo de jogo: ")
+  
+  if menuInicial == "1":
+    jogadores = 1
+    print("\n"*130)
+    print("Bem vindo ao modo X1 contra seu amigo!\n")
+
+    while jogadores == 1:
+      j1 = False
+      j2 = False
+      print("\n" * 130)
+      print("Placar: \nJogador 1: ",scoreJ1, "\nJogador 2: ",scoreJ2,"\n")
+      print("Pedra")
+      print("Papel")
+      print("Tesoura\n")
+
+      j1 = input("Jogador 1 - Digite uma das opcoes: ")
+      j2 = input("Jogador 2 - Digite uma das opcoes: ")
+
+      if j1 == "Pedra":
+        if j2 == "Papel":
+          print("\nJogador 2 venceu!\n")
+          scoreJ2 += 1
+        elif j2 == "Tesoura":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif j2 == "Papel":
+          print("\nEmpate, jogue novamente!\n")
+
+      elif j1 == "Papel":
+        if j2 == "Tesoura":
+          print("\nJogador 2 venceu!\n")
+          scoreJ2 += 1
+        elif j2 == "Papel":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif j2 == "Papel":
+          print("\nEmpate, jogue novamente!\n")
+
+      elif j1 == "Tesoura":
+        if j2 == "Pedra":
+          print("\nJogador 2 venceu!\n")
+          scoreJ2 += 1
+        elif j2 == "Papel":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif j2 == "Tesoura":
+          print("\nEmpate, jogue novamente!\n")
+
+  if menuInicial == "2":
+    jogadores = 2
+    print("\n"*130)
+    print("Bem vindo ao modo X1 AGAINST MACHINE!\n")
+
+    while jogadores == 2:
+      j1 = False
+      jpc = False
+      print("\n" * 130)
+      print("Placar: \nJogador 1: ",scoreJ1, "    Jogador 2: ",scorePC,"\n\n")
+      print("Gesto1: Pedra")
+      print("Gesto2: Papel")
+      print("Gesto3: Tesoura")
+	  print("Ou digite Sair\n")
+	  
+	  j1 = input("Jogador 1 - Digite uma das opcoes: ")
+      jpc = escolhaPC(1)[0]
+      print("\nMaquina joga: ", jpc,"\n")
+
+      if j1 == "Pedra":
+        if jpc == "Papel":
+          print("\nJogador 2 venceu!\n")
+          scorePC += 1
+        elif jpc == "Tesoura":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif jpc == "Papel":
+          print("\nEmpate, jogue novamente!\n")
+
+      elif j1 == "Papel":
+        if jpc == "Tesoura":
+          print("\nJogador 2 venceu!\n")
+          scorePC += 1
+        elif jpc == "Papel":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif jpc == "Papel":
+          print("\nEmpate, jogue novamente!\n")
+
+      elif j1 == "Tesoura":
+        if jpc == "Pedra":
+          print("\nJogador 2 venceu!\n")
+          scorePC += 1
+        elif jpc == "Papel":
+          print("\nJogador 1 venceu!\n")
+          scoreJ1 += 1
+        elif jpc == "Tesoura":
+          print("\nEmpate, jogue novamente!\n")
